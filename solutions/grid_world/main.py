@@ -2,12 +2,12 @@ from typing import List
 
 from core.Agent.Agent import Agent
 
-from Solutions.GridWorld.state_space import GridWorldStateSpace
-from Solutions.GridWorld.Action import GridWorldAction
-from Solutions.GridWorld.GridWorldEnvironment import GridWorldEnvironment
-from Solutions.GridWorld.Policy import GridWorldEquiprobablePolicy
-from Solutions.GridWorld.StateIndex import GridWorldStateIndex
-from Solutions.GridWorld.state import GridWorldState
+from solutions.grid_world.state_space import GridWorldStateSpace
+from solutions.grid_world.action import GridWorldAction
+from solutions.grid_world.environment import GridWorldEnvironment
+from solutions.grid_world.policy import GridWorldEquiprobablePolicy
+from solutions.grid_world.state_index import GridWorldStateIndex
+from solutions.grid_world.state import GridWorldState
 
 from graphing.graphing import Graphing
 

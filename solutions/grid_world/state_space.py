@@ -2,8 +2,8 @@
 import logging
 
 from core.dependency.state_space import StateSpace
-from Solutions.GridWorld.Action import GridWorldAction
-from Solutions.GridWorld.StateIndex import GridWorldStateIndex
+from solutions.grid_world.action import GridWorldAction
+from solutions.grid_world.state_index import GridWorldStateIndex
 from log.ilogger import ILogger
 
 class GridWorldStateSpace(StateSpace[GridWorldStateIndex, GridWorldAction]):

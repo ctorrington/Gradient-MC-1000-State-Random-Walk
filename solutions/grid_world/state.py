@@ -8,7 +8,7 @@ import logging
 from typing import List
 
 from core.dependency.state import State
-from Solutions.GridWorld.Action import GridWorldAction
+from solutions.grid_world.action import GridWorldAction
 from log.ilogger import ILogger
 
 class GridWorldState(State[GridWorldAction]):
