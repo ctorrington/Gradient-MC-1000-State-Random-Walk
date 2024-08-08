@@ -41,10 +41,20 @@ class Environment[SI: StateIndex, A: Action](ABC, Dict[SI, StateActions[SI, A]])
         action: A,
         next_state_index: SI
     ) -> float:
+        """Return the probability of successfully transitioning from one State 
+        to another State after following an Action within the Environment.
+
+        Args:
+            current_state_index (SI): State Index of the current State the 
+            Agent is making an Action within.
+            action (A): Action being made by the Agent.
+            next_state_index (SI): State Index of the next State the Agent will 
+            be in after following Action.
+
+        Returns:
+            float: Percentage probability of the next State occuring.
         """
-        Return the probability of transitioning from one state to another
-        given an action.
-        """
+        
         return self.get_state_actions(current_state_index) \
             .get_state_probability_distribution(action) \
                 .get_state_probability(next_state_index)
