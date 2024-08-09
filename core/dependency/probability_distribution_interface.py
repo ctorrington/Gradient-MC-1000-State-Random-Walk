@@ -5,12 +5,12 @@ class ProbabilityDistributionInterface[T](ABC, Dict[T, float]):
     """Abstract Base Class for probability distributions.
     """
     
-    @abstractmethod
-    def __init__(
-        self,
-        probability_distribution: Dict[T, float]
-    ) -> None:
-        pass
+    # @abstractmethod
+    # def __init__(
+    #     self,
+    #     probability_distribution: Dict[T, float]
+    # ) -> None:
+    #     pass
 
     @abstractmethod
     def set_probability_for_key(

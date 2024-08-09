@@ -1,16 +1,19 @@
-from typing import Dict
-
 from core.dependency.probability_distribution_interface import ProbabilityDistributionInterface
 from core.dependency.state_index import StateIndex
 
+class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInterface[SI]):
+    pass
+
 class StateProbabilityDistribution[SI: StateIndex](ProbabilityDistributionInterface[SI]):
-# class StateProbabilityDistribution[SI: StateIndex](Dict[SI, float]):
     """Probability that a State is achieved following an Action within the 
     Environment.
 
-    State Probability Distribution is a distribution of States following an 
-    Action from a State within the Environment.
+    State Probability Distribution is a probability distribution of 
+    successfully achieving a State following an Action from a State within the 
+    Environment.
     """
+    
+    # raise DeprecationWarning
 
     def set_probability_distribution_for_state(
         self,
