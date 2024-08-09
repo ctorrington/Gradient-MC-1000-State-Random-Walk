@@ -16,7 +16,10 @@ class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInt
         key: SI,
         probability: float
     ) -> None:
-        pass
+        if not key in self.keys():
+            raise KeyError(f"State Index {key} not within {self.__class__.__name__}.")
+
+        self[key] = probability
     
     def set_probability_distribution(
         self,
