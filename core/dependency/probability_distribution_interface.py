@@ -8,7 +8,7 @@ class ProbabilityDistributionInterface[T](ABC, Dict[T, float]):
     @abstractmethod
     def set_probability_for_key(
         self,
-        state_index: T,
+        key: T,
         probability: float
     ) -> None:
         pass
@@ -23,7 +23,7 @@ class ProbabilityDistributionInterface[T](ABC, Dict[T, float]):
     @abstractmethod
     def get_probability_of_key(
         self,
-        state_index: T
+        key: T
     ) -> float:
         pass
 
