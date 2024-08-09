@@ -13,7 +13,7 @@ from core.dependency.action import Action
 from core.dependency.state import State
 from core.Agent.Agent import Agent
 from core.Agent.History import History
-from core.Environment.Environment import Environment
+from core.environment.environment import Environment
 
 from log.ilogger import ILogger
 

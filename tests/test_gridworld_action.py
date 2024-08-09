@@ -1,6 +1,6 @@
 import unittest
 
-from Solutions.GridWorld.Action import GridWorldAction
+from solutions.grid_world.action import GridWorldAction
 
 # TODO Redo
 

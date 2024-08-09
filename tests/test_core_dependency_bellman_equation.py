@@ -5,7 +5,7 @@ from unittest.mock import MagicMock, create_autospec
 from core.dependency.bellman_equation import BellmanEquation
 from core.dependency.state_index import StateIndex
 from core.dependency.action import Action
-from core.Environment.Environment import Environment
+from core.environment.environment import Environment
 from core.Policy.BasePolicy import BasePolicy
 from core.dependency.state_space import StateSpace
 from core.dependency.state import State

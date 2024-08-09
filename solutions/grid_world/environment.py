@@ -2,8 +2,8 @@
 
 # from typing import Dict
 
-from core.Environment.Environment import Environment
-# from core.dependency.state_actions import StateActions
+from core.environment.environment import Environment
+from core.dependency.state_actions import StateActions
 from core.dependency.state_probability_distribution import StateProbabilityDistribution
 from log.ilogger import ILogger
 
@@ -32,7 +32,7 @@ class GridWorldEnvironment(Environment[GridWorldStateIndex, GridWorldAction]):
         
         # TODO fix these overriding errors.
         # self.state_space: GridWorldStateSpace = state_space
-        # self.initialize_environment()
+        self.initialize_environment()
         
     def initialize_environment(self) -> None:
         # TODO Doc string.
@@ -66,18 +66,18 @@ class GridWorldEnvironment(Environment[GridWorldStateIndex, GridWorldAction]):
     #     action: 
     # )
     
-    def set_state_action_probability_distribution(
-        self,
-        state_index: GridWorldStateIndex
-    ) -> StateProbabilityDistribution[GridWorldStateIndex]:
-        """_summary_
+    # def set_state_action_probability_distribution(
+    #     self,
+    #     state_index: GridWorldStateIndex
+    # ) -> StateProbabilityDistribution[GridWorldStateIndex]:
+    #     """_summary_
 
-        Args:
-            state_index (GridWorldStateIndex): _description_
+    #     Args:
+    #         state_index (GridWorldStateIndex): _description_
 
-        Returns:
-            StateProbabilityDistribution: _description_
-        """
+    #     Returns:
+    #         StateProbabilityDistribution: _description_
+    #     """
         
         # for (state_index, state) in self.state_space.items():
             
