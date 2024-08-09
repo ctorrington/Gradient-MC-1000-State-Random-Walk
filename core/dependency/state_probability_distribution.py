@@ -1,21 +1,35 @@
-"""
-State Probability Distribution type.
-
-Mapping from States potentially resulting from an Action to the percentage 
-chance of the State occuring, according to the Environment.
-"""
-
 from typing import Dict
 
+from core.dependency.probability_distribution_interface import ProbabilityDistributionInterface
 from core.dependency.state_index import StateIndex
 
-class StateProbabilityDistribution[SI: StateIndex](Dict[SI, float]):
-    """Probability that a State is achieved.
-    Dictionary mapping State Index type to float.
+class StateProbabilityDistribution[SI: StateIndex](ProbabilityDistributionInterface[SI]):
+# class StateProbabilityDistribution[SI: StateIndex](Dict[SI, float]):
+    """Probability that a State is achieved following an Action within the 
+    Environment.
 
     State Probability Distribution is a distribution of States following an 
     Action from a State within the Environment.
     """
+
+    def set_probability_distribution_for_state(
+        self,
+        state_index: SI,
+        probability: float
+    ) -> None:
+        """Set the probability that a State occurs.
+
+        This probability value is for a State occuring following an Action 
+        from another State within the Environment.
+
+        Args:
+            state_index (StateIndex): State Index for the State occurring.
+            probability (float): Probability that a State occurs.
+        """
+        if not state_index in self:
+            raise KeyError(f"State Index {state_index} not within {self.__class__.__name__} for Action.")
+
+        self[state_index] = probability
 
     def get_state_probability(
         self,

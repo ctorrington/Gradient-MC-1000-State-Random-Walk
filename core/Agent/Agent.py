@@ -4,7 +4,7 @@
 from copy import deepcopy
 
 from core.dependency.state_space import StateSpace
-from core.Environment.Environment import Environment
+from core.environment.environment import Environment
 from core.Policy.BasePolicy import BasePolicy
 from core.dependency.state_index import StateIndex
 from core.dependency.state import State
