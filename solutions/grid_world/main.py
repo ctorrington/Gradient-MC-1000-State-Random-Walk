@@ -60,7 +60,8 @@ def main():
                     state=grid_world_state
                 )
     environment: GridWorldEnvironment = GridWorldEnvironment(
-        state_space=grid_world_state_space
+        state_space=grid_world_state_space,
+        logger=logger_manager
     )
     policy: GridWorldEquiprobablePolicy[GridWorldStateIndex, GridWorldAction] = (
         GridWorldEquiprobablePolicy(

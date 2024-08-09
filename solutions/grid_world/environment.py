@@ -1,10 +1,11 @@
 """Grid World Environment."""
 
-from typing import Dict
+# from typing import Dict
 
 from core.Environment.Environment import Environment
-from core.dependency.state_actions import StateActions
+# from core.dependency.state_actions import StateActions
 from core.dependency.state_probability_distribution import StateProbabilityDistribution
+from log.ilogger import ILogger
 
 from solutions.grid_world.state_space import GridWorldStateSpace
 from solutions.grid_world.action import GridWorldAction
@@ -21,11 +22,17 @@ from solutions.grid_world.state_index import GridWorldStateIndex
 class GridWorldEnvironment(Environment[GridWorldStateIndex, GridWorldAction]):
     def __init__(
         self,
-        state_space: GridWorldStateSpace
+        state_space: GridWorldStateSpace,
+        logger: ILogger
     ) -> None:
+        
+        super().__init__(
+            state_space=state_space
+        )
+        
         # TODO fix these overriding errors.
-        self.state_space: GridWorldStateSpace = state_space
-        self.initialize_environment()
+        # self.state_space: GridWorldStateSpace = state_space
+        # self.initialize_environment()
         
     def initialize_environment(self) -> None:
         # TODO Doc string.
@@ -52,6 +59,33 @@ class GridWorldEnvironment(Environment[GridWorldStateIndex, GridWorldAction]):
             # state_actions[action].update(possible_next_states_distribution)
             
         return state_actions
+    
+    # def set_actions_for_state_index(
+    #     self,
+    #     state_index: GridWorldStateIndex,
+    #     action: 
+    # )
+    
+    def set_state_action_probability_distribution(
+        self,
+        state_index: GridWorldStateIndex
+    ) -> StateProbabilityDistribution[GridWorldStateIndex]:
+        """_summary_
+
+        Args:
+            state_index (GridWorldStateIndex): _description_
+
+        Returns:
+            StateProbabilityDistribution: _description_
+        """
+        
+        # for (state_index, state) in self.state_space.items():
+            
+        #     for action in state.actions:
+                
+                
+        
+        # pass
             
     def determine_next_state_probability_distribution(
         self,
