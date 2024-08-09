@@ -25,7 +25,8 @@ class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInt
         self,
         probability_distribution: Dict[SI, float]
     ) -> None:
-        pass
+        if not probability_distribution:
+            raise ValueError(f"Empty probability distribution provided for {self.__class__.__name__}.")
     
     def get_probability_of_key(
         self,
