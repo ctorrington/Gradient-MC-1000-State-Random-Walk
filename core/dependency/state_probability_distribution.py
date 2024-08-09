@@ -40,7 +40,7 @@ class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInt
     def get_probability_distribution(
         self
     ) -> Dict[SI, float]:
-        pass
+        return self
 
 class StateProbabilityDistribution[SI: StateIndex](ProbabilityDistributionInterface[SI]):
     """Probability that a State is achieved following an Action within the 
