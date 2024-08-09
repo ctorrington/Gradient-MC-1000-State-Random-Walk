@@ -32,7 +32,10 @@ class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInt
         self,
         key: SI
     ) -> float:
-        pass
+        if not key in self.keys():
+            raise KeyError(f"State Index {key} not within {self.__class__.__name__}.")
+
+        return self[key]
     
     def get_probability_distribution(
         self
