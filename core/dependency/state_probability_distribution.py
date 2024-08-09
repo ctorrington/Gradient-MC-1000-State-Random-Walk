@@ -1,8 +1,39 @@
+from typing import Dict
 from core.dependency.probability_distribution_interface import ProbabilityDistributionInterface
 from core.dependency.state_index import StateIndex
 
 class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInterface[SI]):
-    pass
+    def __init__(
+        self,
+        probability_distribution: Dict[SI, float]
+    ):
+        super().__init__(
+            probability_distribution=probability_distribution
+        )
+
+    def set_probability_for_key(
+        self,
+        key: SI,
+        probability: float
+    ) -> None:
+        pass
+    
+    def set_probability_distribution(
+        self,
+        probability_distribution: Dict[SI, float]
+    ) -> None:
+        pass
+    
+    def get_probability_of_key(
+        self,
+        key: SI
+    ) -> float:
+        pass
+    
+    def get_probability_distribution(
+        self
+    ) -> Dict[SI, float]:
+        pass
 
 class StateProbabilityDistribution[SI: StateIndex](ProbabilityDistributionInterface[SI]):
     """Probability that a State is achieved following an Action within the 
