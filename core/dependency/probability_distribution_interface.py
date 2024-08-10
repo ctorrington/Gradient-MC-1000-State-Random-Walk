@@ -1,6 +1,8 @@
 from abc import ABC, abstractmethod
 from typing import Dict
 
+# TODO class should be removed. Should be replaced by DistributionInterface.
+
 class ProbabilityDistributionInterface[T](ABC, Dict[T, float]):
     """Abstract Base Class for probability distributions.
     """

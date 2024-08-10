@@ -1,12 +1,11 @@
 import unittest
 
-from tests.utils import timed
 from typing import Any
 
-from core.dependency.state_probability_distribution import StateProbabilityDistribution
+from tests.utils import timed
+from core.dependency.state_probability_distribution_new import StateProbabilityDistributionNew
 
-class TestStateProbabilityDistribution(unittest.TestCase):
-
+class TestStateProbabilityDistributionNew(unittest.TestCase):
     @timed
     def test_init_with_int_index(self):
         index1: int = 1
@@ -17,8 +16,8 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index2: 0.03
         }
 
-        state_prob_init = StateProbabilityDistribution[int](
-            probability_distribution=prob_distro_int
+        state_prob_init = StateProbabilityDistributionNew(
+            distribution=prob_distro_int
         )
         
         self.assertEqual(prob_distro_int, state_prob_init)
@@ -33,16 +32,16 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index_2_tuple: 0.2,
         }
         
-        state_prob_tuple = StateProbabilityDistribution[tuple[int, int]](
-            probability_distribution=prob_distro_tuple_int
+        state_prob_tuple = StateProbabilityDistributionNew(
+            distribution=prob_distro_tuple_int
         )
         
         self.assertEqual(prob_distro_tuple_int, state_prob_tuple)
 
     @timed
     def test_set_probability_for_key(self):
-        int_index_prob_distro = StateProbabilityDistribution[int](
-            probability_distribution={
+        int_index_prob_distro = StateProbabilityDistributionNew(
+            distribution={
                 1: 0.2,
                 2: 0.03
             }
@@ -50,9 +49,9 @@ class TestStateProbabilityDistribution(unittest.TestCase):
 
         key = 1
         prob_value = 0.7
-        int_index_prob_distro.set_probability_for_key(
+        int_index_prob_distro.set_distribution_for_key(
             key=key,
-            probability=prob_value
+            distribution=prob_value
         )
         self.assertEqual(int_index_prob_distro[key], prob_value)
 
@@ -64,14 +63,14 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistribution(
-            probability_distribution=prob_distro_int
+        int_index_prob_distro = StateProbabilityDistributionNew(
+            distribution=prob_distro_int
         )
 
         with self.assertRaises(KeyError):
-            int_index_prob_distro.set_probability_for_key(
+            int_index_prob_distro.set_distribution_for_key(
                 key=9000,
-                probability=1
+                distribution=1
             )
 
     @timed
@@ -82,14 +81,14 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistribution(
-            probability_distribution=prob_distro_int
+        int_index_prob_distro = StateProbabilityDistributionNew(
+            distribution=prob_distro_int
         )
 
         with self.assertRaises(KeyError):
-            int_index_prob_distro.set_probability_for_key(
+            int_index_prob_distro.set_distribution_for_key(
                 key="",
-                probability=1
+                distribution=1
             )
 
     @timed
@@ -100,8 +99,8 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistribution(
-            probability_distribution=prob_distro_int
+        int_index_prob_distro = StateProbabilityDistributionNew(
+            distribution=prob_distro_int
         )
 
         distro = {
@@ -111,7 +110,7 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             4: 8.0,
             5: 9.0
         }
-        int_index_prob_distro.set_probability_distribution(distro)
+        int_index_prob_distro.set_distribution(distro)
         
         self.assertEqual(distro, int_index_prob_distro)
 
@@ -123,25 +122,27 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistribution(
-            probability_distribution=prob_distro_int
+        int_index_prob_distro = StateProbabilityDistributionNew(
+            distribution=prob_distro_int
         )
 
         distro: dict[int, float] = {}
         
         with self.assertRaises(ValueError):
-            int_index_prob_distro.set_probability_distribution(distro)
+            int_index_prob_distro.set_distribution(distro)
 
     @timed
     def test_get_probability_of_key(self):
         key = 1
         probability = 1.0
         
-        test_distro = StateProbabilityDistribution(
-            probability_distribution={key: probability}
+        test_distro = StateProbabilityDistributionNew(
+            distribution={key: probability}
         )
         
-        self.assertEqual(probability, test_distro.get_probability_of_key(key=key))
+        self.assertEqual(
+            probability, test_distro.get_distribution_of_key(key=key)
+        )
 
     @timed
     def test_get_probability_of_invalid_key(self):
@@ -149,12 +150,12 @@ class TestStateProbabilityDistribution(unittest.TestCase):
         invalid_key = 5
         probability = 1.0
         
-        test_distro = StateProbabilityDistribution(
-            probability_distribution={key: probability}
+        test_distro = StateProbabilityDistributionNew(
+            distribution={key: probability}
         )
         
         with self.assertRaises(KeyError):
-            test_distro.get_probability_of_key(invalid_key)
+            test_distro.get_distribution_of_key(invalid_key)
 
 if __name__ == "__main__":
     unittest.main()
