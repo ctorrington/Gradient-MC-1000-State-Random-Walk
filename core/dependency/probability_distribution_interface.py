@@ -10,7 +10,7 @@ class ProbabilityDistributionInterface[T](ABC, Dict[T, float]):
         self,
         probability_distribution: Dict[T, float]
     ) -> None:
-        pass
+        super().__init__(probability_distribution)
 
     @abstractmethod
     def set_probability_for_key(
