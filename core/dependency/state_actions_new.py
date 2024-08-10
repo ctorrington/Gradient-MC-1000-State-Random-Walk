@@ -21,3 +21,14 @@ class StateActions[SI: StateIndex, A: Action](DistributionInterface[A, StateProb
         super().__init__(
             distribution=distribution
         )
+
+    # TODO See if the error checking can be done in super()
+    def set_distribution(
+        self,
+        distribution: Dict[A, StateProbabilityDistribution[SI]]
+    ) -> None:
+        if not distribution:
+            raise ValueError(f"Empty probability distribution provided for {self.__class__.__name__}.")
+
+        self.clear()
+        self.update(distribution.copy())
