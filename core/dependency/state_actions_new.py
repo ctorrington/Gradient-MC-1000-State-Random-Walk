@@ -1,3 +1,4 @@
+from typing import Dict
 from core.dependency.distribution_interface import DistributionInterface
 from core.dependency.state_probability_distribution import StateProbabilityDistribution
 from core.dependency.state_index import StateIndex
@@ -12,3 +13,11 @@ class StateActions[SI: StateIndex, A: Action](DistributionInterface[A, StateProb
     State Actions are used by an Environment to connect an Action taken in a 
     State to a distribution of possible next States.
     """
+
+    def __init__(
+        self,
+        distribution: Dict[A, StateProbabilityDistribution[SI]]
+    ) -> None:
+        super().__init__(
+            distribution=distribution
+        )
