@@ -11,6 +11,8 @@ from core.dependency.action import Action
 from core.dependency.state_index import StateIndex
 from core.dependency.state_probability_distribution import StateProbabilityDistribution
 
+# TODO This class should be removed. Replaced by State Actions inheriting from DistributionInterface.
+
 class StateActions[SI: StateIndex, A: Action](ABC, Dict[A, StateProbabilityDistribution[SI]]):
     """Mapping of an Action to it's State Probability Distribution. Actions can 
     result in multiple States. StateActions connects an Action within a State 
