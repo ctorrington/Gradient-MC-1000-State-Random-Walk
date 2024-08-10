@@ -32,3 +32,13 @@ class StateActions[SI: StateIndex, A: Action](DistributionInterface[A, StateProb
 
         self.clear()
         self.update(distribution.copy())
+
+    def set_distribution_for_key(
+        self,
+        key: A,
+        distribution: StateProbabilityDistribution[SI]
+    ) -> None:
+        if not key in self.keys():
+            raise KeyError(f"State Index {key} not within {self.__class__.__name__}.")
+
+        self[key] = distribution
