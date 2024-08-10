@@ -3,7 +3,7 @@ from core.dependency.state_index import StateIndex
 
 from core.dependency.distribution_interface import DistributionInterface
 
-class StateProbabilityDistributionNew[SI: StateIndex](DistributionInterface[SI, float]):
+class StateProbabilityDistribution[SI: StateIndex](DistributionInterface[SI, float]):
     def __init__(
         self,
         distribution: Dict[SI, float]

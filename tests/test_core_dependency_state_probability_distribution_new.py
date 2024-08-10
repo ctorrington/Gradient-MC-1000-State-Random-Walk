@@ -3,7 +3,7 @@ import unittest
 from typing import Any
 
 from tests.utils import timed
-from core.dependency.state_probability_distribution_new import StateProbabilityDistributionNew
+from core.dependency.state_probability_distribution_new import StateProbabilityDistribution
 
 class TestStateProbabilityDistributionNew(unittest.TestCase):
     @timed
@@ -16,7 +16,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index2: 0.03
         }
 
-        state_prob_init = StateProbabilityDistributionNew(
+        state_prob_init = StateProbabilityDistribution(
             distribution=prob_distro_int
         )
         
@@ -32,7 +32,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index_2_tuple: 0.2,
         }
         
-        state_prob_tuple = StateProbabilityDistributionNew(
+        state_prob_tuple = StateProbabilityDistribution(
             distribution=prob_distro_tuple_int
         )
         
@@ -40,7 +40,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
 
     @timed
     def test_set_probability_for_key(self):
-        int_index_prob_distro = StateProbabilityDistributionNew(
+        int_index_prob_distro = StateProbabilityDistribution(
             distribution={
                 1: 0.2,
                 2: 0.03
@@ -63,7 +63,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistributionNew(
+        int_index_prob_distro = StateProbabilityDistribution(
             distribution=prob_distro_int
         )
 
@@ -81,7 +81,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistributionNew(
+        int_index_prob_distro = StateProbabilityDistribution(
             distribution=prob_distro_int
         )
 
@@ -99,7 +99,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistributionNew(
+        int_index_prob_distro = StateProbabilityDistribution(
             distribution=prob_distro_int
         )
 
@@ -122,7 +122,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
             index1: 0.2,
             index2: 0.03
         }
-        int_index_prob_distro = StateProbabilityDistributionNew(
+        int_index_prob_distro = StateProbabilityDistribution(
             distribution=prob_distro_int
         )
 
@@ -136,7 +136,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
         key = 1
         probability = 1.0
         
-        test_distro = StateProbabilityDistributionNew(
+        test_distro = StateProbabilityDistribution(
             distribution={key: probability}
         )
         
@@ -150,7 +150,7 @@ class TestStateProbabilityDistributionNew(unittest.TestCase):
         invalid_key = 5
         probability = 1.0
         
-        test_distro = StateProbabilityDistributionNew(
+        test_distro = StateProbabilityDistribution(
             distribution={key: probability}
         )
         
