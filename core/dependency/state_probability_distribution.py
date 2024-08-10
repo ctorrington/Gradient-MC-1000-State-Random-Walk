@@ -27,6 +27,9 @@ class StateProbabilityDistributionNew[SI: StateIndex](ProbabilityDistributionInt
     ) -> None:
         if not probability_distribution:
             raise ValueError(f"Empty probability distribution provided for {self.__class__.__name__}.")
+        
+        self.clear()
+        self.update(probability_distribution.copy())
     
     def get_probability_of_key(
         self,
