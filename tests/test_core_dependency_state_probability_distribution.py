@@ -17,9 +17,11 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index2: 0.03
         }
 
-        StateProbabilityDistributionNew(
+        state_prob_init = StateProbabilityDistributionNew(
             probability_distribution=prob_distro_int
         )
+        
+        self.assertEqual(prob_distro_int, state_prob_init)
 
     @timed
     def test_init_with_tuple_int_index(self):
@@ -31,9 +33,11 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             index_2_tuple: 0.2,
         }
         
-        StateProbabilityDistributionNew(
+        state_prob_tuple = StateProbabilityDistributionNew(
             probability_distribution=prob_distro_tuple_int
         )
+        
+        self.assertEqual(prob_distro_tuple_int, state_prob_tuple)
 
     @timed
     def test_set_probability_for_key(self):
@@ -107,7 +111,9 @@ class TestStateProbabilityDistribution(unittest.TestCase):
             4: 8.0,
             5: 9.0
         }
-        self.assertEqual(distro, int_index_prob_distro.set_probability_distribution(distro))
+        int_index_prob_distro.set_probability_distribution(distro)
+        
+        self.assertEqual(distro, int_index_prob_distro)
 
     @timed
     def test_set_probability_empty_distribution(self):
