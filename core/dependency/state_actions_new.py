@@ -42,3 +42,12 @@ class StateActions[SI: StateIndex, A: Action](DistributionInterface[A, StateProb
             raise KeyError(f"State Index {key} not within {self.__class__.__name__}.")
 
         self[key] = distribution
+
+    def get_distribution(self) -> Dict[A, StateProbabilityDistribution[SI]]:
+        pass
+
+    def get_distribution_of_key(
+        self,
+        key: A
+    ) -> StateProbabilityDistribution[SI]:
+        pass
