@@ -47,3 +47,34 @@ class DistributionInterface[K, V](ABC, Dict[K, V]):
         key: K
     ) -> V:
         pass
+
+    def __init__(self, distribution: Mapping[K, V]) -> None:
+        self._distribution = dict(distribution)  # Store as a dict internally
+
+    def __getitem__(self, key: K) -> V:
+        return self._distribution[key]
+
+    def __setitem__(self, key: K, value: V) -> None:
+        self._distribution[key] = value
+
+    def __delitem__(self, key: K) -> None:
+        del self._distribution[key]
+
+    def __iter__(self):
+        return iter(self._distribution)
+
+    def __len__(self) -> int:
+        return len(self._distribution)
+
+    def keys(self):
+        return self._distribution.keys()
+
+    def items(self):
+        return self._distribution.items()
+
+    def values(self):
+        return self._distribution.values()
+
+    def get(self, key: K, default=None):
+        return self._distribution.get(key, default)
+
